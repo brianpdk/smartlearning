@@ -30,9 +30,20 @@ namespace Kortspil
 
         private string FindBillede(int kortnummer)
         {
-            string resultat = "2-Spar.jpg";
-
+            //string resultat = "2-Spar.jpg";
+            //string resultat = $"{kortnummer}-Spar.jpg";
             // Skriv din løsning her...
+            string resultat = "";
+            if (kortnummer == 1)
+            {
+                resultat = $"{kortnummer}-Hjerter.jpg";
+            }else if (kortnummer >= 2 && kortnummer <= 10)
+            {
+                resultat = $"{kortnummer}-Spar.jpg";
+            }else if (kortnummer == 11)
+            {
+                resultat = $"{kortnummer}-Ruder.jpg";
+            }
 
             return resultat;
         }
