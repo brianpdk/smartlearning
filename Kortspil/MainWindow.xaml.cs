@@ -30,22 +30,27 @@ namespace Kortspil
 
         private string FindBillede(int kortnummer)
         {
-            //string resultat = "2-Spar.jpg";
-            //string resultat = $"{kortnummer}-Spar.jpg";
-            // Skriv din løsning her...
-            string resultat = "";
-            if (kortnummer == 1)
-            {
-                resultat = $"{kortnummer}-Hjerter.jpg";
-            }else if (kortnummer >= 2 && kortnummer <= 10)
-            {
-                resultat = $"{kortnummer}-Spar.jpg";
-            }else if (kortnummer == 11)
-            {
-                resultat = $"{kortnummer}-Ruder.jpg";
-            }
 
-            return resultat;
+        if (kortnummer < 1 || kortnummer > 52)
+        {
+            Console.WriteLine("Kortnummer skal være mellem 1 og 52.");
+            kortnummer = 1;
         }
+
+        string[] farver = { "Spar", "Ruder", "Klør", "Hjerter" };
+        string[] nummer = { "Es", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Knægt", "Dame", "Konge" };
+
+        // Opretter farveindex (0 = spar, 1 = ruder, 2 = klør, 3 = hjerter)
+        int farveindex = (kortnummer - 1) / 13;
+        string farve = farver[farveindex];
+
+        // Opretter rangindex ved brug af modulus operator
+        int rangIndex = (kortnummer - 1) % 13;
+        string rang = nummer[rangIndex];
+
+        // Construct the filename
+        return $"{rang}-{farve}.jpg";
+         
+         }
     }
 }
