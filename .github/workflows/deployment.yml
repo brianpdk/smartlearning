@@ -40,6 +40,4 @@ jobs:
           template: ./infra/webapp.json
           parameters: |
             webAppName=brianpdk
-            location=northeurope
           deploymentName: webapp-deployment
-          
