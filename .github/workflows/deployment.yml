@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: sandbox  # Must match your GitHub environment name
+    environment: sandbox  # GitHub environment name
 
     permissions:
       id-token: write
@@ -30,5 +30,7 @@ jobs:
         with:
           resourceGroupName: infra
           template: ./infra/webapp.bicep
-          parameters: webAppName=brianpdk
+          parameters: |
+            webAppName=brianpdk
+            location=northeurope
           deploymentName: webapp-deployment
